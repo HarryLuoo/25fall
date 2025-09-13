@@ -1,6 +1,7 @@
 #set math.equation(numbering: "(1)")
 #set page(margin: (x: 1.2cm, y: 1.2cm))
- #import "@preview/physica:0.9.3": *
+#import "@preview/physica:0.9.3": *
+#import "@preview/mitex:0.2.5": *
 #place(top + right, rect(inset: 3pt)[MATH 541 HW1 | Harry Luo])
 
 = P1
@@ -55,7 +56,7 @@ Prove by contradiction:
   $ 
   Since inverse of an element is unique, $b = a$, a contradiction. #h(1fr) $qed$
 
-+ Multiplication tables are special cases of Latin squares, in particular, they hold hold the property of associativity. This restricts the set of possible Latin squares, because:
++ Multiplication tables are special cases of Latin squares. In particular, they hold hold the property of associativity. This restricts the set of possible Latin squares, because:
 
   The group operation must be associative, menaing for every single combiniation of three elements, $ a, b, c in G, (a b)c = a (b c)$.
 
@@ -117,8 +118,103 @@ Therefore, $ (G, times)$ is a group. #h(1fr) $qed$
 == b. $ (G, +)$ is not a group. 
 Assume identity exists, then for any $ a in G,$ $ 
      e + a = a + e = a. 
-$ Since $ a,e in CC,$ the identity must be $ 0$. However, $ 0 in.not G$, since $ 0^n =0$ for any $ n in ZZ^+$, a contradiction. #h(1fr) $qed$
+$ Since $ a,e in CC,$ the identity must be $ 0$. However, $ 0 in.not G$, since $ 0^n =0$ for any $ n in ZZ^+$, a contradiction. Thus the identity axiom is failed.#h(1fr) $qed$
 
 #pagebreak()
 = P5
-$$ 
+We check the four axioms: 
+=== Clousure:
+As given in the problem, $H$ is closed under $star$ .
+=== Associativity:
+Since $H subset G$ and $star$ is associative on $G,$ $star$ is also associative on $H.$
+=== Inverse:
+We are given that $H$ is closed under inverse, and so the inverse axiom is satisfied.
+=== Identity:
+Since $H$ is nonempty, take arbitrary $h in H$. Since $H$ is closed under inverse, $h^(-1) in H$. Now, we have:
+$ 
+    h star h^(-1) = h^(-1) star h := e.
+$ 
+This identity element must exist in $H$ by closure of $H$ under $star$. Thus, the identity axiom is satisfied. 
+
+#pagebreak()
+= P6 
+$(A, star)$ and $(B, diamond)$ are groups.  $A times B:= {(a, b) | a in A, b in B}$ with operation:$(a, b) (c, d) = (a star c, b diamond d)$ for all $(a, b), (c, d) in A times B.$
+
+== 1. Check group axioms:
+=== Closure:
+Take arbitrary $(a_1, b_1) "and" (a_2,b_2) in A times B.$ Then, $ 
+    (a_1, b_1)(a_2, b_2) = (a_1 star a_2, b_1 diamond b_2).
+$ Since $A$ and $B$ are groups, $a_1 star a_2 in A$ and $b_1 diamond b_2 in B.$ Thus, $ (a_1 star a_2, b_1 diamond b_2) in A times B,$ i.e. closure is satisfied.
+
+=== Associativity:
+Take arbitrary $(a_1, b_1), (a_2, b_2), (a_3, b_3) in A times B.$ Then, $ 
+    [(a_1med , med b_1)(a_2med , med b_2)](a_3med , med b_3) &= (a_1 star a_2med , med b_1 diamond b_2)(a_3med , med b_3) \ &= ((a_1 star a_2) star a_3med , med (b_1 diamond b_2) diamond b_3) \ &= (a_1 star (a_2 star a_3)med , med b_1 diamond (b_2 diamond b_3)) \ &= (a_1med , med b_1)(a_2 star a_3med , med b_2 diamond b_3) \ &= (a_1med , med b_1)[(a_2med , med b_2)(a_3med , med b_3)].
+$ and so associativity is satisfied.
+
+=== Identity:
+Take arbitrary $(a, b) in A times B.$ Let $e_A$ and $e_B$ be the identity elements of $A$ and $B$ respectively. Then, $ 
+    (a, b)(e_A, e_B) = (a star e_A, b diamond e_B) = (a, b)
+$ and similarly, $(e_A, e_B)(a, b) = (e_A star a, e_B diamond b) = (a, b).$ Thus, the identity axiom is satisfied with identity element $ (e_A, e_B).$ #h(1fr) 
+
+=== Inverse:
+Take arbitrary $(a, b) in A times B.$ Let $a^(-1)$ and $b^(-1)$ be the inverses of $a$ and $b$ in $A$ and $B$ respectively. Then, $ 
+    (a, b)(a^(-1), b^(-1)) = (a star a^(-1), b diamond b^(-1)) = (e_A, e_B).
+$ Similarly, $(a^(-1), b^(-1))(a, b) = (e_A, e_B)$ and so the inverse axiom is satisfied. #h(1fr) $qed$
+
+== 2. Prove that $A times B$ is abelian iff both $(A, star)$ and $(B, diamond)$ are abelian.
+
+$==>:$ 
+Assume $A times B$ is abelian, then for any $ a_1, a_2 in A$ and $ b_1, b_2 in B,$ we have: $ 
+    (a_1, b_1)(a_2, b_2) = (a_2, b_2)(a_1, b_1).
+    $ \ LHS: $ 
+    (a_1, b_1)(a_2, b_2) = (a_1 star a_2, b_1 diamond b_2). 
+    $ \ RHS: $
+    (a_2, b_2)(a_1, b_1) = (a_2 star a_1, b_2 diamond b_1).
+ $ \ Thus $a_1 star a_2 = a_2 star a_1$ and $b_1 diamond b_2 = b_2 diamond b_1$, and so $A$ and $B$ are abelian.
+
+$<==:$ 
+Assume both $(A, star)$ and $(B, diamond)$ are abelian, then for any $ a_1, a_2 in A$ and $ b_1, b_2 in B,$ we have: 
+$ 
+    (a_1,b_1)(a_2,b_2) = (a_1 star a_2, b_1 diamond b_2) = (a_2 star a_1, b_2 diamond b_1) = (a_2,b_2)(a_1,b_1).  
+$ This shows that $A times B$ is abelian. #h(1fr) $qed$
+
+#pagebreak()
+= P7
+== 1. Prove that $x y = y x "iff" y^(-1) x y = x "iff" x^(-1) y^(-1) x y = 1$.
+- Start from left. 
+Suppose $ x y = y x,$ applying $y^(-1)$ on both sides gives $y^(-1) x y = y^(-1) y x = x$.
+
+Conversely, suppose $ y^(-1) x y = x,$ then $y y^(-1) x y = y x => x y  = y x.$ The first equivalence is proved.
+
+- Now suppose $y  ^(-1)x y = x.$ Applying $x^(-1)$ on both sides gives $x^(-1) y^(-1) x y = x^(-1) x = 1.$
+  \ Conversely, suppose $x^(-1) y^(-1) x y = 1.$ Applying $x$ on both sides gives $x x^(-1) y^(-1) x y = x => y^(-1) x y = x.$ The second equivalence is proved, thus completing the proof. #h(1fr) $qed$
+
+== 2. Prove further that $|y x y^(-1)| = |x|$.
+Let $|x| = n$ and $|y x y^(-1) = m$     
+- First, prove that $m <= n$:
+  Since $x^n = e,$ expanding $(y x y^(-1)):$  $ 
+      y x y^(-1) y x y^(-1) ... y x y^(-1) (n times) &= y x^n y^(-1) \ &= y e y^(-1) \ &= e. 
+  $ 
+  And so $m$ divides $n$, i.e. $m <= n.$
+- Then, prove that $n <= m$:
+  Since $(y x y^(-1))^m = e,$expanding $(y x y^(-1))^m$ in the same way gives $ y x^m y^(-1) = e => y^(-1) x^m y^(-1) y = e => x^m = e $   
+  and so $n$ divides $m$, i.e. $n <= m.$
+Thus we have $m = n,$ i.e. $|y x y^(-1)| = |x|.$ #h(1fr) $qed$
+
+=== 3. Prove that $|x y| = |y x| forall x, y in G.$
+From part 2, we know that for any $g, h in G,$ $ |g| = |h g h^(-1)|$.
+Now let $g = x y$ and $h = x^(-1),$ then we can show: $ 
+    |x y| = |x^(-1) (x y) (x^(-1))^(-1)| = |x^(-1) x y x| = |y x| $ 
+Thus $|x y| = |y x| forall x, y in G.$ #h(1fr) $qed$
+
+#pagebreak()
+= P8
+As hinted, $t(G) = {g in G | g eq.not g^(-1)}$.
+Consider any $g in t(G),$ then $g^(-1) in t(G)$ as well. 
+\ This implies that $g$ and $g^(-1)$are distinct, and so $t(G)$ is composed of pairs of elements, and so $|t(G)|$ is even.
+\ Since $|G|$ is also even, $|G| - |t(G)|$ is even.
+
+Now, $G - t(G)$ is nonempty since the identity $e in.not t(G)$. Thus exists $
+a eq.not e med s.t. med a in G- t(G). $
+
+We choose $a in.not t(G)$, then $a = a^(-1)$ so that $a^2  = e, a eq.not e$. This implies that a is an element of order 2. #h(1fr) $qed$   
