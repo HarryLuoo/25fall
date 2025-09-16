@@ -217,4 +217,4 @@ Consider any $g in t(G),$ then $g^(-1) in t(G)$ as well.
 Now, $G - t(G)$ is nonempty since the identity $e in.not t(G)$. Thus exists $
 a eq.not e med s.t. med a in G- t(G). $
 
-We choose $a in.not t(G)$, then $a = a^(-1)$ so that $a^2  = e, a eq.not e$. This implies that a is an element of order 2. #h(1fr) $qed$   
+We chose $a in.not t(G)$, then $a = a^(-1)$ so that $a^2  = e, a eq.not e$. This implies that a is an element of order 2. #h(1fr) $qed$   
