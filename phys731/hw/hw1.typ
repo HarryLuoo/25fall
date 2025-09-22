@@ -266,3 +266,8 @@ $ display(    hbar^4 /16.)$
 ]
 
 $
+While the uncertainty relation dictates that $ 
+    expectationvalue((Delta S_x)^2) expectationvalue((Delta S_y)^2) >= (1/4) | expectationvalue([S_x, S_y])|^2 = (1/4) | i hbar S_z |^2 = hbar^2 /4 expectationvalue(S_z)^2, 
+$where $ 
+    expectationvalue(S_z) = sum_(i) a_i p(a_i) = hbar/2 dot (cos^2(beta/2)) + (-hbar/2) dot (sin^2(beta/2)) = hbar/2 cos beta.
+$and so $ expectationvalue((Delta S_x)^2) expectationvalue((Delta S_y)^2) >= hbar^4 / 16, $ which is satisfied by the maximum uncertainty product we found above.
