@@ -25,7 +25,9 @@ $ display(   sqrt(pi/(2 n)) .)$
 ]
 
   $ 
-  
+A comparison plot between the asymptotic form and the exact integral is shown below ( over incerasing $n$ ).
+#image("assets/2025-09-28-13-38-16.png")
+
 #pagebreak()
 = P2
 #align(
@@ -51,6 +53,8 @@ $ display(    e^x / sqrt(2 pi x) .)$
 ]
 
 $ 
+A comparison plot between the asymptotic form and the exact integral is shown below ( for $n = 0$ ).
+#image("assets/2025-09-28-13-39-11.png")
 
 #pagebreak()
 = P3
@@ -64,7 +68,7 @@ $
 We read off the Laplace integral form with $f(theta) = ln(x+sqrt(x^2  - 1) cos theta )$: $ 
     P_n (x) = 1/pi integral_(0)^(pi) e^(n f(theta)) dif theta . 
 $ 
-Examine $f(theta)$, with $omega sqrt(x^2 -1) >0, med beta = x+ omega >1$ : $ 
+Examine $f(theta)$, with $omega = sqrt(x^2 -1) >0, med beta = x+ omega >1$ : $ 
     f'(theta) = - frac(omega sin(theta ) , omega cos theta + x) <0, quad (theta in (0, pi)) 
 $ 
 so $f(theta)$ is monotonically decreasing in $(0, pi)$ with maximum at boundary $theta_0 = 0$. Further, $ 
@@ -82,6 +86,9 @@ $ display(    frac(beta^(n + 1/2)  , sqrt(2 pi n omega) ) .)$
 ]
 
 $
+
+A comparison plot between the asymptotic form and the exact integral is shown below ($x = 1.5$ ).
+#image("assets/2025-09-28-13-39-37.png", width: 80%, )
 
 #pagebreak()
 = P4
@@ -120,6 +127,9 @@ $ display(    sqrt(pi / 2) frac( exp( nu "arcsinh"(nu / x) - sqrt(nu^2 + x^2) ) 
 ]
 
 $
+A comparison plot between the asymptotic form and the exact integral is shown below (for $x=1$  ).
+#image("assets/2025-09-28-13-41-37.png", width: 50%)
+
 
 #pagebreak()
 = P5
@@ -134,7 +144,7 @@ $
 
 Recall the estimate for the Gamma function at large argument (from lecture): $ 
     Gamma(nu + 1) approx sqrt(2 pi nu) (nu / e)^nu .
-$ 
+$ <eq.sterling>
 
 We read off the Laplace integral form with $Phi(t) = nu ln t - x t - t^2 / 2$: $ 
     J(nu) = integral_(0)^(infinity) e^(Phi(t)) dif t , quad D_(-nu-1)(x) = e^(-x^2 / 4) frac(J(nu) , Gamma(nu + 1)) . 
@@ -156,17 +166,28 @@ Since this is an interior maximum far from $t=0$ (Gaussian width $~ 1 / sqrt( - 
     J(nu) approx e^(Phi(t_0)) sqrt( 2 pi / ( - Phi''(t_0) ) ) = e^(Phi(t_0)) sqrt( 2 pi / (2 + x / t_0 ) ) . 
 $ 
 Thus $ 
-    D_(-nu-1)(x) approx frac( e^(-x^2 / 4) e^(Phi(t_0)) sqrt( 2 pi / (2 + x / t_0 ) ) , Gamma(nu + 1) ) . 
-$ 
-Using Stirling's approximation $1 / Gamma(nu + 1) approx e^nu / ( sqrt(2 pi nu) nu^nu )$, and noting $Phi(t_0) + x^2 / 4 = nu ln t_0 - nu / 2 - x sqrt(x^2 + 4 nu)/4$, we obtain the saddle-point form: $ 
-#rect(inset: 8pt)[
-$ display(    frac( sqrt(2 pi) exp( nu ln t_0 - nu / 2 - (x sqrt(x^2 + 4 nu))/4 ) , sqrt(2 + x / t_0 ) Gamma(nu + 1) ) .)$
-]
+    D_(-nu-1)(x) approx frac( e^(-x^2 / 4) e^(Phi(t_0)) sqrt( 2 pi / (2 + x / t_0 ) ) , Gamma(nu + 1) ) 
 
+#rect(inset: 8pt)[
+$ display(  = frac( sqrt(2 pi) exp( nu ln t_0 - nu / 2 - (x sqrt(x^2 + 4 nu))/4 ) , sqrt(2 + x / t_0 ) Gamma(nu + 1) ) .)$
+]
 $ 
-For large $nu$, with $t_0 ~ sqrt(nu) - x / 2$, this simplifies to the leading behavior: $ 
+
+
+
+
+Applying Stirling's approximation (@eq.sterling), prefactor simplifies with $t_0 -> oo$ : $ sqrt(2 pi / (2 + x / t_0 )) ~ sqrt(pi) quad => sqrt(2 pi) / [ sqrt(2 + x / t_0 ) Gamma(nu + 1) ] ~ sqrt(pi) / sqrt(2 pi nu) = 1 / sqrt(2 nu). $
+
+For the exponent, expand $t_0 ~ sqrt(nu) - x / 2$, yielding $nu ln t_0 ~ (nu / 2) ln nu - (x / 2) sqrt(nu)$ and $- x sqrt(x^2 + 4 nu) / 4 ~ - (x / 2) sqrt(nu)$. $
+nu ln t_0 - nu / 2 - x sqrt(x^2 + 4 nu)/4 ~ (nu / 2) ln nu + nu / 2 - x sqrt(nu) + O(1)\
+=>
+    D_(-nu-1)(x) ~ 
+
 #rect(inset: 8pt)[
 $ display(    frac(1 , sqrt(2 nu) ) (e / nu)^(nu / 2) e^(- x sqrt(nu) ) .)$
 ]
 
 $
+A comparison plot between the asymptotic form and the exact integral is shown below (for $x = 1$ ).
+#image("assets/2025-09-28-13-42-29.png")
+
