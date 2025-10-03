@@ -52,17 +52,22 @@ $
 - consider $(h_1, h_2), (g_1, g_2) in G times G.$ $ 
     (h_1, h_2) ((g_1, g_2) a) &= (h_1, h_2) (g_1 a g_2^(-1)) \ 
     & = h_1 g_1 a g_2^(-1) h_2^(-1). \ 
-    ((h_1 g_1), (g_2 h_2)) a &= (h_1 g_1) a (g_2 h_2)^(-1) \ 
-    & = h_1 g_1 a h_2^(-1) g_2^(-1) = (h_1, h_2) ((g_1, g_2) a).
+    ((h_1 g_1), (h_2 g_2)) a &= (h_1 g_1) a ( h_2 g_2)^(-1) \ 
+    & = h_1 g_1 a g_2^(-1) h_2^(-1) = (h_1, h_2) ((g_1, g_2) a).
 $ 
 so this is an action of $G times G$ on $G.$
 
 === 2 
 Consider the kernel $(g_1, g_2) med s.t. med (g_1, g_2) a = a, forall a in G.$ 
    Then $ 
-       g_1 a g_2^(-1) = a => g_1 = a g_2 a^(-1), forall a in G 
-   $ The only elements of G that are conjugate to each othre for every $ a in G$ must commute with every element, so $g_2 in ZZ(G)$ and $g_1 = g_2.$ Thus the kernel is ${ (g,g) | g in ZZ(G)}.$
-
+       g_1 a g_2^(-1) = a <=> g_1 = a g_2 a^(-1), forall a in G 
+   $ 
+   which gives $g_2 = a^(-1)g_1 a med forall a in G.$ Let arbitrary $x, y in G, $ then $ 
+       x^(-1) g_1 x = y^(-1) g_1 y => g_1 (x y ^(-1)) = (x y ^(-1)) g_1 .
+   $ Then $g_1 in Z(G.)$ Hence $g_2 = a^(-1) g_1 a = g_1 med := g.$ Thus, the kernel is $ 
+       {(g, g) | g in Z(G)}.
+    $ 
+     
 #pagebreak()
 = 4
 #align(
@@ -79,10 +84,10 @@ Define $c_g : G -> G, c_g(x) = g x g^(-1).$ Now, for any $x, g in G,$ consider $
      c_g(x y ) = g x y g^(-1); \ c_g(x) c_g(y) = (g x g^(-1)) (g y g^(-1)) = g x (g^(-1) g) y g^(-1) = g x y g^(-1) \ c_g(x y) = c_g(x) c_g(y).
  $ So $c_g$ is a homomorphism. Further, recall that a map $f$  is bijective if $exists g: B->A med s.t. med f compose g = e_B, g compose f = e_A.$  
    
-   We define an "inverse conjugation" as $c_g^(-1): G->G, c_g(x) = g^(-1) x g.$ Then, $ 
-       c_g compose c_g^(-1) (x) = c_g(g^(-1) x g) = g (g^(-1) x g) g^(-1) = e x e = x; \ 
-       c_g^(-1) compose c_g (x) = c_g^(-1)(g x g^(-1)) = g^(-1) (g x g^(-1)) g = e x e = x.
-    $ Therefore $c_g compose c_g^(-1) = e = c_g^(-1) compose c_g.$ 
+   We define an "inverse conjugation" as $c_(g^(-1)): G->G, c_g(x) = g^(-1) x g.$ Then, $ 
+       c_g compose c_(g^(-1)) (x) = c_g(g^(-1) x g) = g (g^(-1) x g) g^(-1) = e x e = x; \ 
+       c_(g^(-1)) compose c_g (x) = c_(g^(-1))(g x g^(-1)) = g^(-1) (g x g^(-1)) g = e x e = x.
+    $ Therefore $c_g compose c_(g^(-1)) = e = c_(g^(-1)) compose c_g.$ 
     Thus, $c_g$ is bijective, and hence an automorphism of G. 
 
 === 2 
@@ -102,7 +107,7 @@ Further, we can show that $c_g$ is surjective from $A$ to $g A g^(-1).$ Consider
 )
 We can construct such an example by failing the subgroup definition that $forall x in H, x^(-1) in H.$
 
-Consider $G = (RR, times), H = ZZ$. It is easily verified that $H subset G, |H| = infinity,$ and $H$ is closed under multiplication. However, consider $2 in H.$ Its inverse would be $1/2,$ but it is not in $H.$ Thus, $H$ is not a subgroup of $G.$
+Consider $G = (RR, +), H = NN$. It is easily verified that $H subset G, |H| = infinity,$ and $H$ is closed under addition. However, consider $2 in H.$ Its inverse would be $-2,$ but it is not in $H.$ Thus, $H$ is not a subgroup of $G.$
 
 #pagebreak()
 = 6
@@ -197,4 +202,4 @@ $
    - for $g = j, $ notice that $j A j^(-1) = {-i, i} = A;$
    - for $g = k, $ notice that $k A k^(-1) = {i, -i} = A.$
    - for cases $g = -j, -k,$ the same results hold in the exact same way.
-- Thus, $N_G (A) = {1, -1, i, -i, j, -j, k, -k} = G_8.$  
+- Thus, $N_G (A) = {1, -1, i, -i, j, -j, k, -k} = Q_8.$  
