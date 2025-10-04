@@ -29,7 +29,8 @@ $
     xi cot xi = - eta, quad xi^2 + eta^2 = R^2. 
 $ 
 Limiting behaviour: 
-- as $V_0-> infinity,eta ->infinity$ and $cot xi -> -infinity$ satisfied at $eta = n pi, n in ZZ.$
+- as $V_0-> infinity,eta ->infinity$ and $cot xi -> -infinity$ satisfied at *$display(eta = n pi \, quad n in ZZ.)$*
+
 - as $V_0 ->0, R->0, $ but as seen below (LEFT) that $xi cot xi = -eta (xi, eta >0)$ has solution only for $R>= pi/2,$ the limit of $V_0->0$ yields* no odd parity bound states. *)
 
 
@@ -48,9 +49,18 @@ image("assets/2025-10-03-12-58-02.png")
 - Constraint: $ xi^2 +  eta^2 = 16$ (Green)
 From a graphical analysis, we find three bound states:
 
-- One intersection with the first branch of $ xi tan( xi)$ (even).
-- One intersection with the first branch of $- xi cot( xi)$ (odd).
-- One intersection with the second branch of $ xi tan( xi)$ (even).
+$(xi, eta)= (1.25235,3.7989), \ (xi, eta) = (2.47458,3.14269), \ (xi,eta)=(3.5953,1.75322)$ 
+
+2. Numerically, we solve $ 
+    cases(xi tan xi = sqrt(16 - xi^2 ), - xi cot xi = sqrt(16 - xi^2 ) )
+$ and the solutions are identical as above: $ 
+    xi_1 = 1.25235, xi_2 = 2.47458, xi_3 = 3.5953. 
+$ 
+and the energies are $ 
+    E= V_0 (frac(xi^2  , 16) ) \ => E_1 = 0.09797, E_2 = 0.3829, E_3 = 0.8077
+$ 
+
+
 
 #pagebreak()
 = 2 
@@ -262,7 +272,7 @@ $$
 $$
 where $D_n = (1/m\omega\pi\hbar)^{1/4} (2^n n!)^{-1/2}$ is the normalization constant.
 
-The structure of this integral is mathematically identical to the calculation of the position matrix element $\langle n'|x|n\rangle$ in position space. The calculation proceeds in exactly the same way, using the Hermite polynomial identity for $qH_n(q)$.
+Similar to calculation of the position matrix element $\langle n'|x|n\rangle$ in position space. 
 $$
 \langle n'|p|n\rangle = \int_{-\infty}^{\infty} \left( (-i)^{n'} D_{n'} H_{n'}(q) e^{-q^2/2} \right)^* \cdot p \cdot \left( (-i)^n D_n H_n(q) e^{-q^2/2} \right) \, dp
 $$
@@ -307,3 +317,107 @@ $$
   left,
   rect(inset: 8pt)[For 1. The ground state, and 2. The first excited state, calculate the probability that a particle of mass $m$ in the 1d SHO with freq $omega$ is farther from the origin than the classical turning points where $E = V.$   ]
 )
+
+#mitext(`
+- Let $b \equiv \sqrt{\hbar/(m\omega)}$ and $y \equiv x/b$.
+- SHO energies: $E_n=(n+\tfrac12)\hbar\omega$.
+- Classical turning points solve $E_n=\tfrac12 m\omega^2 x_t^2$, hence
+$$
+x_t(n)=b\sqrt{2n+1},\qquad y_t(n)=\sqrt{2n+1}.
+$$
+- Normalized SHO wavefunctions (in $y$):
+$$
+\psi_n(x)=\frac{1}{\sqrt{b}}\frac{1}{\pi^{1/4}\sqrt{2^n n!}}\,H_n(y)\,e^{-y^2/2},
+$$
+so
+$$
+|\psi_n(x)|^2=\frac{1}{\sqrt{\pi}\,b}\,\frac{H_n(y)^2}{2^n n!}\,e^{-y^2}.
+$$
+- “Tunneling” probability outside the classical region:
+$$
+P_n \equiv 2\int_{x_t(n)}^\infty |\psi_n(x)|^2\,dx
+= 2\int_{y_t(n)}^\infty \frac{1}{\sqrt{\pi}}\frac{H_n(y)^2}{2^n n!}e^{-y^2}\,dy.
+$$
+
+- Ground state n=0
+ Here $H_0(y)=1$, $y_t=\sqrt{1}=1$:
+$$
+P_0= \frac{2}{\sqrt{\pi}}\int_{1}^{\infty}e^{-y^2}\,dy
+= \operatorname{erfc}(1) \approx 0.157299.
+$$
+
+
+- First excited state n=1
+
+- Here $H_1(y)=2y$, $y_t=\sqrt{3}$, and
+$$
+P_1=\frac{2}{\sqrt{\pi}}\int_{\sqrt{3}}^{\infty}\frac{(2y)^2}{2}\,e^{-y^2}\,dy
+=\frac{4}{\sqrt{\pi}}\int_{\sqrt{3}}^{\infty} y^{2}e^{-y^2}\,dy.
+$$
+- Use
+$$
+\int y^{2}e^{-y^{2}}\,dy
+= -\frac{y}{2}e^{-y^{2}}+\frac{\sqrt{\pi}}{4}\operatorname{erf}(y),
+$$
+to obtain for $a>0$,
+$$
+\int_{a}^{\infty} y^{2}e^{-y^{2}}\,dy
+=\frac{\sqrt{\pi}}{4}\operatorname{erfc}(a)+\frac{a}{2}e^{-a^{2}}.
+$$
+- With $a=\sqrt{3}$:
+$$
+P_1=\frac{4}{\sqrt{\pi}}
+\left[\frac{\sqrt{\pi}}{4}\operatorname{erfc}(\sqrt{3})
++\frac{\sqrt{3}}{2}e^{-3}\right]
+= \operatorname{erfc}(\sqrt{3})+\frac{2\sqrt{3}}{\sqrt{\pi}}e^{-3}.
+$$
+
+$$
+\boxed{\,P_1=\operatorname{erfc}(\sqrt{3})+\dfrac{2\sqrt{3}}{\sqrt{\pi}}e^{-3}  \approx 0.11\,}
+$$
+`)
+
+= 6 
+#align(
+  left,
+  rect(inset: 8pt)[Show that for the 1d SHO ( $x$ being the position operator, )$ 
+      braket(0,e^(i k x),0 ) = exp[- k^2  braket(0,x^2 ,0) slash 2] 
+  $ 
+  ]
+)
+Start from creation and annihilation oprators: $ 
+    x = sqrt(frac(hbar , 2 m omega) )(a + a^dagger ) => quad e^(i k x) = e^(i lambda (a + a^dagger )), quad (lambda= k sqrt(hbar /(2 m omega)) ).  
+$ 
+Since $
+[i lambda a, i lambda a^dagger ] = i^2 lambda^2 (a a^dagger - a^dagger a) = lambda^2  (a^dagger a- a a^dagger ) = lambda^2 [a^dagger ,a] = -lambda^2 ,
+$ we can use 
+the BCH formula to write $ 
+    e^(i lambda (a + a^dagger )) = e^(i lambda a) e^(i lambda a^dagger ) e^(lambda^2 /2) .
+$ 
+Then $ 
+    braket(0, e^(i k x),0) &= e^(lambda^2 /2) underbrace(braket(0,e^(i lambda a) e^(i lambda a^dagger ),0),*)   .
+$ 
+Expanding $ 
+    e^(i lambda a) = sum_(m=0)^(infinity) frac((i lambda a)^m , m!) , quad e^(i lambda a^dagger ) = sum_(n=0)^(infinity) frac((i lambda a^dagger )^n , n!) ,
+$ we have (\*) to be   $ 
+     braket(0, sum_(m) sum_(n)  frac((i lambda)^(m+n)  ,m! n! )a^(m) (a^dagger)^n ,0    )= sum_(m) sum_(n)  frac((i lambda)^(m+n)  ,m! n! ) underbrace(braket(0, a^(m) (a^dagger)^n ,0 ),**) .
+$ 
+
+Since $(a^dagger )^n ket(0) = sqrt(n!) ket(n),$ (\*\*) becomes$ 
+     sqrt(n!) braket(0, a^(m) , n) = sqrt(n!) sqrt(n (n-1) ... (n-m+1)) braket(0, n-m) = sqrt(n!) sqrt(n (n-1) ... (n-m+1)) delta_(m,n) = n! delta_(m,n). 
+$ So for $n=m,$$ 
+    (*) = sum_(n=0)^(infinity) frac((i lambda)^(2n) ,n! )= sum_(n) (-lambda^2 )^n / n! = e^(-lambda^2 ) .
+$ 
+Then $ 
+    braket(0, e^(i k x),0) = e^(lambda^2 /2) e^(-lambda^2 ) = e^(-lambda^2 /2)  . 
+$ 
+
+On the other hand, since $ 
+    braket(0,x^2 ,0) = braket(0, frac(hbar , 2 m omega) ( a^2  + a a^dagger + a^dagger  a + a^(dagger 2) ) )= frac(hbar , 2 m omega) braket(0, a^dagger  a + 1, 0)=frac(hbar , 2 m omega),   
+$ 
+we have $ 
+    k^2 /2 braket(0,x^2 ,0) = k^2 /2 frac(hbar , 2 m omega) = lambda^2 /2, 
+$ 
+and so $ 
+    braket(0, e^(i k x),0) = e^(- k^2  braket(0,x^2 ,0) slash 2) ,
+$ as desired.
