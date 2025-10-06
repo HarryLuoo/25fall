@@ -317,7 +317,7 @@ $
 The ground state energy is the energy of a static polaron, found by setting $V=0$.
 $ E_0 = E(0) = 0/2 + (g^4(0 - s^2))/(24(s^2-0)^3) = 
 #rect(inset: 8pt)[
-  $ display((-g^4 s^2)/(24 s^6))$
+  $ display((-g^4 )/(24 s^4))$
 ] $
 
 The negative energy confirms that the formation of a static polaron is energetically favorable, representing a stable bound state.
