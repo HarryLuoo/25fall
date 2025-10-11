@@ -14,7 +14,11 @@ not sure what this class is about...
 #outline(indent: auto,depth:2)
 #pagebreak()
 
-= 1c Diffraction and the nunncertainty principle 
+
+= Wave particle Nature and Matter waves 
+
+
+=  Diffraction and the nunncertainty principle 
 == REsolution limits in electron and light microscopy
 == Diffraction of matter waves 
 
@@ -22,7 +26,7 @@ not sure what this class is about...
 == Defining wave functions
 - Probablistic interpretation
   WE model a particle as wave $psi(x)$ . The pdf: $ 
-      P(x) = abs(psi(x))^2, quad int_(-infinity)^(infinity) P(x) dif x = 1.
+      P(x) = abs(psi(x))^2, quad integral_(-infinity)^(infinity) P(x) dif x = 1.
   $ 
   
 
@@ -63,3 +67,45 @@ $
  $ 
  
  where we read off the particle velocity $v = frac(hbar k_0 , m) t$ . Eqiuvalant to group velocity of a wave packet.
+
+#line(length: 100%) ///////////////////////////
+
+= CLassical and quantum limits to measuremetns 
+
+
+
+== Zero-point energy 
+Recall Heisenburg Uncertainty Principle: $ 
+    Delta E Delta t >= hbar/2.
+    $ 
+In the case for a harmonic oscillator with parabollic potential$ 
+    V(x) = frac(1,2) m omega^2 x^2 ,
+$ 
+uncertainty principle implies a minimum energy (zero-point energy), which is the ground state energy of the quantum harmonic oscillator:
+$ 
+    E_0 = frac(1,2) hbar omega.
+    $
+
+This is observed in experiments: 
+- Electromagnetic field in a cavity: even in the absence of photons, there are fluctuations in the electric and magnetic fields. We can quantify this with the energy density $ 
+u = epsilon_0 expectationvalue(E^2)/2 => E_"rms" = sqrt(expectationvalue(E^2)) = sqrt(frac( hbar omega,2 epsilon_0 V))
+ $ 
+ where $V$ is the volume of the cavity. 
+
+Zero point energies of charges in objects ( molecules, small particles, etc.) induce elemetromagnetic fluctuations that interact at small distances. This is the Casimir effect. On a microscopic scale, this is the van der Waals interaction.
+
+=  Select solutions to Schrodinger equation
+
+== The Schrodinger Equation 
+$ 
+H psi  =E psi .
+$ 
+ 
+=== The free particle 
+ The solution to the time-independent Schrodinger equation for a free particle is $ 
+     psi(x) = A exp(i k x) + B exp(-i k x), quad k = sqrt(2m E)/hbar.
+
+$
+=== THe infinite potential well 
+
+this is so boring. check your 731 notes.
