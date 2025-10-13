@@ -103,7 +103,7 @@ $ display(P_1 (x) = x.)$
 
 Similarly, for $P_2(x)$ with $n=2,$ even series terminate, so kill odd series with $a_1 equiv 0.$ We then have $a_2 = -3 a_0$, and $y = a_0 (1 - 3 x^2).$ Convintionally, normalization is set so that $P_n (1) = 1 => a_0 = - 1/2.$ Thus $
 #rect(inset: 8pt)[
-$ display( P_2 (x) = - 1/2 (3x^2 -1) .)$
+$ display( P_2 (x) =  1/2 (3x^2 -1) .)$
 ]
  $ 
 
@@ -120,7 +120,7 @@ Let $y = sum_(k=0)^(infinity) a_k x^(k+r)   $. Plugging in, we have $
 sum_(k=0)^(infinity) (k+r) (k+r-1)a_k x^(k+r-1) + sum_(0)^(infinity) (k+r) a_k x^(k+r-1) - sum_(k=0)^(infinity) (k+r) a_k x^(k+r) +n sum_(k=0)^(infinity) a_k x^(k+r) =0  
 $ 
 Re-indexing the first two sums and isolating the first few terms, we have $ 
-r(r-1) a_0 x^(r-1) + sum_(k=0)^(infinity) (k+r+1) (k+r)a_(k+1) x^(k+r) +r a_0 x^(r-1) +& sum_(k=0)^(infinity) (k+r+1) a_(k+a) x^(k+r) \ &- sum_(k=0)^(infinity) (k+r) a_k x^(k+r) + n sum_(k=0)^(infinity) a_k x^(k+r) = 0
+r(r-1) a_0 x^(r-1) + sum_(k=0)^(infinity) (k+r+1) (k+r)a_(k+1) x^(k+r) +r a_0 x^(r-1) +& sum_(k=0)^(infinity) (k+r+1) a_(k+1) x^(k+r) \ &- sum_(k=0)^(infinity) (k+r) a_k x^(k+r) + n sum_(k=0)^(infinity) a_k x^(k+r) = 0
 $ 
 
 Imposing the coefficient of the lowest power of $x$ (i.e., $x^(r-1)$) to be zero gives the indicial equation: $ r^2 = 0 ==> r = 0. $
@@ -270,10 +270,10 @@ which matches @eq.dagger term-by-term because $-(-1)^m = (-1)^(m+1)$.
   ]
 )
 Let $y = sum_(k=0)^(infinity) a_k x^(k+r)  $ , substitution gives $ 
-sum_(k=0)^(infinity) (k+r) (k+r-1) a_k x^(k+r-2)- sum_(k=0)^(infinity) (k+r) a_k x^(k+r+1) =0   
+sum_(k=0)^(infinity) (k+r) (k+r-1) a_k x^(k+r-2)- sum_(k=0)^(infinity) a_k x^(k+r+1) =0   
 $ 
 Reindexing the second term: $ 
-sum_(k=0)^(infinity) (k+r) (k+r-1)a_k x^(k+r-2) - sum_(k=3)^(infinity) (k+r-3) a_(k-3) a_(k-3) x^(k+r-2)=0.  
+sum_(k=0)^(infinity) (k+r) (k+r-1)a_k x^(k+r-2) - sum_(k=3)^(infinity)  a_(k-3) a_(k-3) x^(k+r-2)=0.  
 $ 
 Now match coefficients of each power $x^(k+r-2)$:
 
@@ -295,9 +295,9 @@ From $a_1$: $a_4 = frac(a_1, 4 dot 3 ) = frac(a_1, 12 )$, $a_7 = frac(a_4, 7 dot
 
 Hence
 $
-y(x) = a_0 ( 1 + frac(x^3, 3! 2! ) + frac(x^6, 6! 5! ) + dots  ) + a_1  ( x + frac(x^4, 4! 3! ) + frac(x^7, 7! 6! ) + dots   ) ,
+y(x) = a_0 ( 1 + frac(x^3, 3 dot 2 ) + frac(x^6, (3 dot 2)(6 dot 5) ) + dots  ) + a_1  ( x + frac(x^4, (4 dot 3) ) + frac(x^7, (4 dot 3)(7 dot 6) ) + dots   ) ,
 $<eq.5>
-since $3 dot 2 = 3! / 1!$, $6 dot 5 = 6! / 4!$, etc.
+
 
 - *Branch $r=1$*: The head constraints give $a_1 = a_2 = 0$. The recurrence then produces the same “$1 mod 3$” subsequence as taking $r=0$ with $a_1 != 0$. Thus it does not yield an independent solution beyond the two already obtained from $r=0$. 
 
@@ -317,10 +317,10 @@ This combination matches the definition of the *Airy function of the first kind*
 
 Alternatively, if we choose the constants
 $
-a_0 = frac(1, 3^(2/3) Gamma(2/3)) quad "and" quad a_1 = frac(1, 3^(1/3) Gamma(1/3)) ,
+a_0 = frac(3^(-1/6) , Gamma(2/3)) quad "and" quad a_1 = frac(3^(1/6) ,  Gamma(1/3)) ,
 $
 we can arrive at the specific solution:
 $
-y(x) = frac(1, 3^(2/3) Gamma(2/3)) ( 1 + ... ) + frac(1, 3^(1/3) Gamma(1/3)) ( x + ... ) .
+y(x) =frac(3^(-1/6) , Gamma(2/3))( 1 + ... ) +frac(3^(1/6) ,  Gamma(1/3)) ( x + ... ) .
 $
 Which matches the definition of the *Airy function of the second kind*, $"Bi"(x)$.

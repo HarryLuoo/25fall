@@ -1,6 +1,10 @@
 #set math.equation(numbering: "(1)")
 #set page(margin: (x: 1cm, y: 0.7cm))
 #import "@preview/physica:0.9.5": *
+#set text(
+  font: "Palatino Linotype",
+  size: 11pt,
+)
 #place(top + right, rect(inset: 3pt)[Physics731 HW1|Harry Luo])
 
 = P1 

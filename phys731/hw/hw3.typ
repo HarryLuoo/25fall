@@ -1,6 +1,10 @@
 #set math.equation(numbering: "(1)")
 #set page(margin: (x: 1cm, y: 1cm))
 #import "@preview/physica:0.9.5": *
+#set text(
+  font: "Palatino Linotype",
+  size: 11pt,
+)
 #import "@preview/wrap-it:0.1.1": wrap-content
 #import "@preview/mitex:0.2.5":*
 #place(top + right, rect(inset: 3pt)[Phys731 hw3 Harry Luo
