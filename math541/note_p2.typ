@@ -354,9 +354,11 @@ $ Fix 2, found 1 preceeding element bigger that 2, inversion +1. Fix 4, found 2 
 
 #pagebreak()
 = Chapter 4
+
 // Midterm 2 coverage: 2.4, 2.5, 3.1, 3.2, 3.3, 3.5, 4.1, 4.2, 4.3, 5.1, 5.2
 
 == 4.1 _Group actions_
+#line(length: 100% , stroke: 2pt) ///////////////////////////////
 Summary: 
 Group action is a particular mapping. It studies groups via their effect on sets. The orbit-stabilizer theorem quantifies this relationship, showing that the size of an orbit is measured by how large the stabilizer is. Transitive actions are those where the group moves any element to any other, representing maximal symmetry.
 #figure(image("assets/2025-11-11-09-08-58.png"),caption:"Visualizing group actions, orbits, and stabilizers." )
@@ -427,7 +429,7 @@ Equivalently, the action is transitive if and only if $|cal(O)_a| = |A|$ for som
 
 
 == 4.2 _Groups acting on themselves by left multiplication -- *Cayley's Theorem*_
-
+#line(length: 100% , stroke: 2pt) ///////////////////////////////
 #defn[Left regular action][
 - Let $G$ be a group. The  *left regular action* of $G$ on itself is defined by $ 
 g dot a = g a quad forall g, a in G. 
@@ -446,8 +448,35 @@ where $g a$ is the product in the group $G.$]
 
 == 4.3 _Groups acting on themselves by Conjugation -- Class Equation_
 
+=== The Class Equation
 
+Another action of a group on itself is via conjugation. 
+#definition[Conjugation Action][
+  A group $G$ acts on itself by *conjugation* via the map $ 
+  g dot a = g a g^(-1) quad forall g, a in G
+  $
+]
 
+For the conjugation action, we identify the following structures:
+
+- *Kernel:* The set of elements that act trivially on all of $G$ is precisely the center $ 
+Z(G) = {g in G | g x = x g quad forall x in G} 
+$ 
+- *Orbit*: The orbit of $a in G$ is its conjugacy class $ 
+{g a g^(-1) | g in G} 
+$ 
+- *Stabilizer:* The stabilizer of $a$ is its centralizer $ 
+C_G (a) = {g in G | g a = a g}. 
+$ 
+
+Since the conjugacy classes partition $G,$ let $g_1, g_2, dots, g_k$ be representatives of the non-central classes. By the orbit-stabilizer theorem, we have the *class equation* as follows. 
+#theorem[Class Equation][
+  Let $G$ be a finite group. Then 
+  $ 
+  |G| = |Z(G)| + sum_(i=1)^k |G : C_G (g_i)|. 
+  $ 
+][]
+ 
 
 
 
