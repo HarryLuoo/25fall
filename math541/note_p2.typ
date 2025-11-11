@@ -1,7 +1,6 @@
 #import "@preview/physica:0.9.3": *
 #import "@preview/ergo:0.2.0": *
 #import "@preview/ilm:1.4.1": *
-#import "@preview/cetz:0.4.2": canvas, draw, tree
 #import "@preview/wrap-it:0.1.1": wrap-content
 #show: ergo-init.with(
     colors:     ergo-colors.bootstrap,
@@ -357,12 +356,92 @@ $ Fix 2, found 1 preceeding element bigger that 2, inversion +1. Fix 4, found 2 
 = Chapter 4
 // Midterm 2 coverage: 2.4, 2.5, 3.1, 3.2, 3.3, 3.5, 4.1, 4.2, 4.3, 5.1, 5.2
 
-== 4.1
+== 4.1 _Group actions_
+Summary: 
+Group action is a particular mapping. It studies groups via their effect on sets. The orbit-stabilizer theorem quantifies this relationship, showing that the size of an orbit is measured by how large the stabilizer is. Transitive actions are those where the group moves any element to any other, representing maximal symmetry.
 
-== 4.2
-_Groups acting on themselves by left multiplication -- *Cayley's Theorem*_
+=== Basic Definitions 
+Let $G$ be a group and $A$ a nonempty set. We define many things about how $G$ can "act" on $A$ via a mapping that respects the group structure. 
+#defn[Group Action][
+  A *left group action* of $G$ on $A$ is a map $G times A -> A,$ with $(g,a) mapsto g dot a,$ satisfying
+  1. _associativity:_ $d_1 dot (g_2 dot a) = (g_1 g_2) dot a$ for all $g_1, g_2 in G$ and $a in A.$
+  2. _identity:_ $e dot a = a$ for all $a in A.$
+   
+When such an action exists, we say that $G$ *acts on* $A.$   
+]
 
-- Le
+#defn[Permutation Representation][
+  For each fixed $g in G,$ define the map $sigma_g: A -> A$ by $sigma_g (a) = g dot a.$ The axioms above ensure that $sigma_g$ is a permutation of $A.$ The map $ 
+  phi: G-> S_A, quad phi(g) = sigma_g 
+  $ is a homomorphism, called the *permutation representation* associated to the action of $G$ on $A.$ 
+  
+]
+
+#defn[Kernel of the action][ The kernel of theaction is the set of elements that act trivially on _every_ element of $A$. $ 
+ker = {g in G| g dot a = a quad forall a in A.} 
+$ This coicides with the kernel of the permutation representation $phi.$
+ ]
+
+
+#defn[Faithful Action][The action is *faithful* if its kernel is trivial. That is, only the identity element of $G$ acts trivially on all elements of $A$. Equivalently, the permutation representation $phi$ is injective.  ]
+
+=== Orbits and stabilizers. 
+For a fixed element $a in A,$
+#defn[Orbit][ The *orbit* of $a$ under the action of $G$ is the set $ 
+cal(O)_a = {g dot a | g in G} quad subset.eq A. 
+$ It's the set of elements in $A$ that can be reached from $a$ via the action of $G.$
+]
+
+#prop[Orbits are equivalence classes][
+  Define a relation $~$ on $A$ by $a~ b "iff" b = g dot a$   for some $g in G.$ Then
+   $~$ is an equivalence relation on $A.$ (reflexive, symmetric, transitive). Thus:
+  - The equivalence class of $a$ (the set of all $b$ s.t. the relation holds )  is the orbit $cal(O)_a.$
+  - Equivalence classes $=>$orbits _partition_ $A$ into disjoint subsets.  
+][]
+
+#defn[Stabilizer][ The *stabilizer* of $a$ in $G$ is the subgroup $ 
+G_a = {g in G | g dot a = a} quad <= G. 
+$ It's the set of elements in $G$ that leave $a$ fixed under the action. 
+]
+=== Orbit-Stabilizer Theorem
+Since the stabilizer $G_a$ is a subgroup of $G$, we can consider the set of left cosets $G slash G_a$. Each coset corresponds to a distinct destination for $a$, so $|G slash G_a|$ counts the elements in the orbit. By Lagrange's Theorem:
+$ |G| = |G_a| dot |G slash G_a|. $
+
+There is a bijection $g G_a mapsto g dot a$ between $G slash G_a$ and $cal(O)_a$, giving:
+#thm("Orbit-Stabilizer Theorem")[
+  Let $G$ be a finite group acting on a set $A.$ For any $a in A,$ 
+  $ |cal(O)_a| = |G : G_a| = frac(|G|, |G_a|) quad <=> quad |G| = |cal(O)_a| dot |G_a|.
+  $ 
+][]
+
+=== Transitive Actions 
+
+#defn[Transitive Action][
+The action of $G$ on $A$ is* transitive* if there is only one orbit, i.e., for any $a, b in A$, there exists $g in G$ such that $b = g dot a$.]
+Equivalently, the action is transitive if and only if $|cal(O)_a| = |A|$ for some (hence every) $a in A$. By the Orbit-Stabilizer Theorem, this means $|A| = |G : G_a|$ for any $a in A$.
+  
+
+ 
+
+
+
+== 4.2 _Groups acting on themselves by left multiplication -- *Cayley's Theorem*_
+
+#defn[Left regular action][
+- Let $G$ be a group. The  *left regular action* of $G$ on itself is defined by $ 
+g dot a = g a quad forall g, a in G. 
+$ 
+where $g a$ is the product in the group $G.$] 
+
+#prop[The left regular action is 
+- faithful. The kernel is trivial.
+- transitive. THere is only one orbit; for any $a, b in G,$ exists $g in G$ s.t. $b = g a.$
+][]
+
+=== Cayley's theorem
+#theorem[Cayley's theorem][Every group $G$ is isomorphic to a subgroup of the symmetric group $S_G.$ If $|G|=n$ , then $G$ is isomorphic to a subgroup of $S_n.$ ][]
+
+*Remark.* The theorem shows that the abstract notion of a group is equivalent to the historical notion of a permutation group. However, studying groups as subgroups of $S_n$ is often computationally impractical since $S_n$ is much larger than $G$.
 
 == 4.3
 

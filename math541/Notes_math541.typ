@@ -4,7 +4,7 @@
 #import "@preview/cetz:0.4.2": canvas, draw, tree
 #import "@preview/wrap-it:0.1.1": wrap-content
 #show: ergo-init.with(
-    colors:     ergo-colors.bw,
+    colors:     ergo-colors.bootstrap,
     styles:     ergo-styles.sidebar1,
     breakable:  true,
     inline-qed: true,
@@ -35,7 +35,6 @@ Rerference:
 
 = Chapter 1
 
-#pagebreak()
 = Chapter 2
 == 2.1 
 
@@ -43,9 +42,6 @@ Rerference:
 == 2.2
 
 == 2.3
-
-
-
 
 
 #include "note_p2.typ"
