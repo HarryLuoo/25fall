@@ -359,6 +359,7 @@ $ Fix 2, found 1 preceeding element bigger that 2, inversion +1. Fix 4, found 2 
 == 4.1 _Group actions_
 Summary: 
 Group action is a particular mapping. It studies groups via their effect on sets. The orbit-stabilizer theorem quantifies this relationship, showing that the size of an orbit is measured by how large the stabilizer is. Transitive actions are those where the group moves any element to any other, representing maximal symmetry.
+#figure(image("assets/2025-11-11-09-08-58.png"),caption:"Visualizing group actions, orbits, and stabilizers." )
 
 === Basic Definitions 
 Let $G$ be a group and $A$ a nonempty set. We define many things about how $G$ can "act" on $A$ via a mapping that respects the group structure. 
