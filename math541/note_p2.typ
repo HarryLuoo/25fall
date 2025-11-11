@@ -443,9 +443,12 @@ where $g a$ is the product in the group $G.$]
 
 *Remark.* The theorem shows that the abstract notion of a group is equivalent to the historical notion of a permutation group. However, studying groups as subgroups of $S_n$ is often computationally impractical since $S_n$ is much larger than $G$.
 
-== 4.3
+== 4.3 _Groups acting on themselves by Conjugation -- Class Equation_
 
-== 4.4
+
+
+
+
 
 #pagebreak()
 = Chapter 5

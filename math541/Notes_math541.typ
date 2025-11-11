@@ -15,7 +15,7 @@
 #show heading: text.with(size:1.5em ,weight: 1000)
 
 #set text(11pt, font: "Palatino Linotype")
-#set page(margin: (x: 2cm, y: 2cm),numbering: "1/1", columns: 1, flipped: false)
+#set page(margin: (left:1.5cm, right:4cm, y: 1.5cm),numbering: "1/1", columns: 1, flipped: false)
 #set math.equation(numbering:"(1)")
 #heading(numbering: none,outlined: false)[Notes on Abstract Algebra]
 Harry Luo\
