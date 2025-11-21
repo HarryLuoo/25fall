@@ -407,10 +407,10 @@ G_a = {g in G | g dot a = a} quad <= G.
 $ It's the set of elements in $G$ that leave $a$ fixed under the action. 
 ]
 === Orbit-Stabilizer Theorem
-Since the stabilizer $G_a$ is a subgroup of $G$, we can consider the set of left cosets $G slash G_a$. Each coset corresponds to a distinct destination for $a$, so $|G slash G_a|$ counts the elements in the orbit. By Lagrange's Theorem:
+Since the stabilizer $G_a$ is a subgroup of $G$, we can consider the set of left cosets $G slash G_a$ (note that it's _not_ a quotient group in genral). Each coset corresponds to a distinct destination for $a$, so $|G slash G_a|$ counts the elements in the orbit. By Lagrange's Theorem:
 $ |G| = |G_a| dot |G slash G_a|. $
 
-There is a bijection $g G_a mapsto g dot a$ between $G slash G_a$ and $cal(O)_a$, giving:
+There is a bijection $g G_a mapsto g dot a$ between $G slash G_a$ and $cal(O)_a$, so the size of orbit equals size of cosets of stabilizer, giving:
 #thm("Orbit-Stabilizer Theorem")[
   Let $G$ be a finite group acting on a set $A.$ For any $a in A,$ 
   $ |cal(O)_a| = |G : G_a| = frac(|G|, |G_a|) quad <=> quad |G| = |cal(O)_a| dot |G_a|.
@@ -459,16 +459,16 @@ Another action of a group on itself is via conjugation.
 
 For the conjugation action, we identify the following structures:
 
-- *Kernel:* The set of elements that act trivially on all of $G$ is precisely the center $ 
-Z(G) = {g in G | g x = x g quad forall x in G} 
-$ 
+
 - *Orbit*: The orbit of $a in G$ is its conjugacy class $ 
 {g a g^(-1) | g in G} 
 $ 
 - *Stabilizer:* The stabilizer of $a$ is its centralizer $ 
 C_G (a) = {g in G | g a = a g}. 
 $ 
-
+- *Kernel:* The set of elements that act trivially on all of $G$ is precisely the center $ 
+Z(G) = {g in G | g x = x g quad forall x in G} 
+$ 
 Since the conjugacy classes partition $G,$ let $g_1, g_2, dots, g_k$ be representatives of the non-central classes. By the orbit-stabilizer theorem, we have the *class equation* as follows. 
 #theorem[Class Equation][
   Let $G$ be a finite group. Then 
@@ -476,7 +476,7 @@ Since the conjugacy classes partition $G,$ let $g_1, g_2, dots, g_k$ be represen
   |G| = |Z(G)| + sum_(i=1)^k |G : C_G (g_i)|. 
   $ 
 ][]
- 
+
 
 
 

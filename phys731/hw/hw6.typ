@@ -54,14 +54,6 @@ Thus the fraction of the classically allowed region occupied by this boundary la
   xi/A ~ 1/(2^(5 \/3)) thin(n + frac(1, 2))^(-2 \/3),
 $ which scales with decreasing $n.$ Thus, although the WKB criterion always fails arbitrarily close to the turning points, the “bad” region becomes a parametrically small fraction of the classically allowed interval as $n$ increases.
 
-
- 
- 
- 
-
-
-
-
 #pagebreak()
 
 = 2 
